@@ -1,0 +1,249 @@
+/* ============================================
+   JOGAÍ — estilo neon roxo
+   ============================================ */
+:root {
+  --fundo: #14091f;
+  --painel: #1d0f2e;
+  --card: #241338;
+  --borda: #7b2ff7;
+  --neon: #a855f7;
+  --rosa: #e040fb;
+  --texto: #f4ecff;
+  --suave: #b6a3cf;
+  --raio: 14px;
+  --brilho: 0 0 22px rgba(168, 85, 247, 0.45);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--fundo) radial-gradient(circle at 50% 0%, #3b1160 0%, transparent 60%) fixed;
+  color: var(--texto);
+  font-family: "Rajdhani", system-ui, sans-serif;
+  font-size: 16px;
+}
+
+body.tela-centro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+a { color: var(--rosa); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ---------- blocos ---------- */
+.painel {
+  width: 100%;
+  max-width: 980px;
+  background: linear-gradient(160deg, #22103a, #170a26);
+  border: 1px solid var(--borda);
+  border-radius: 20px;
+  box-shadow: var(--brilho);
+  padding: 24px;
+}
+.painel.largo { max-width: 1100px; }
+
+.logo {
+  font-family: "Press Start 2P", monospace;
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+.logo span { color: var(--rosa); text-shadow: 0 0 12px var(--rosa); }
+
+.titulo {
+  font-family: "Press Start 2P", monospace;
+  font-size: 16px;
+  line-height: 1.7;
+  margin: 18px 0 6px;
+  text-shadow: 0 0 12px rgba(168, 85, 247, 0.8);
+}
+.titulo.pequeno { font-size: 13px; }
+
+.secao {
+  font-family: "Press Start 2P", monospace;
+  font-size: 11px;
+  color: var(--rosa);
+  letter-spacing: 1px;
+  margin: 28px 0 12px;
+}
+
+.sub { color: var(--suave); font-size: 15px; margin: 4px 0; }
+.centro { text-align: center; }
+.vazio { margin-top: 30px; }
+.erro {
+  background: rgba(244, 63, 94, 0.15);
+  border: 1px solid #f43f5e;
+  color: #ffd7de;
+  border-radius: 10px;
+  padding: 10px 14px;
+}
+
+/* ---------- formulários ---------- */
+.campo {
+  width: 100%;
+  border-radius: 999px;
+  border: 1px solid var(--borda);
+  background: #190c29;
+  color: var(--texto);
+  padding: 12px 18px;
+  font-family: inherit;
+  font-size: 15px;
+  outline: none;
+  margin-bottom: 14px;
+}
+.campo::placeholder { color: var(--suave); }
+.campo:focus { border-color: var(--neon); box-shadow: var(--brilho); }
+
+.btn {
+  display: inline-block;
+  width: 100%;
+  border: 0;
+  cursor: pointer;
+  border-radius: 999px;
+  padding: 14px 26px;
+  background: linear-gradient(90deg, #7b2ff7, #e040fb);
+  color: #fff;
+  font-family: "Press Start 2P", monospace;
+  font-size: 11px;
+  letter-spacing: 1px;
+  box-shadow: var(--brilho);
+  transition: transform .15s ease, filter .15s ease;
+}
+.btn:hover { transform: translateY(-1px); filter: brightness(1.1); }
+
+.link-suave { color: var(--suave); font-size: 15px; }
+.acoes { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin-top: 18px; }
+.acoes .btn { width: auto; }
+.sair { display: inline-block; margin-top: 26px; }
+
+.linha-3 { display: grid; gap: 12px; grid-template-columns: 1fr; }
+@media (min-width: 720px) { .linha-3 { grid-template-columns: repeat(3, 1fr); } }
+.linha-3 .btn { width: 100%; }
+
+/* ---------- login ---------- */
+.login-grid { display: grid; gap: 24px; grid-template-columns: 1fr; max-width: 900px; }
+@media (min-width: 820px) { .login-grid { grid-template-columns: 1fr 1fr; align-items: center; } }
+.login-arte img { width: 100%; border-radius: var(--raio); margin-top: 16px; display: none; }
+@media (min-width: 820px) { .login-arte img { display: block; } }
+
+/* ---------- avatares ---------- */
+.grade-avatares {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+@media (min-width: 720px) { .grade-avatares { grid-template-columns: repeat(5, 1fr); } }
+
+.avatar-op {
+  background: var(--card);
+  border: 1px solid rgba(123, 47, 247, .5);
+  border-radius: var(--raio);
+  padding: 6px;
+  cursor: pointer;
+  color: var(--suave);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+}
+.avatar-op img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 10px; display: block; }
+.avatar-op span { display: block; padding-top: 4px; }
+.avatar-op:hover { border-color: var(--rosa); }
+.avatar-op.selecionado { border-color: var(--rosa); box-shadow: 0 0 18px rgba(224, 64, 251, .6); }
+
+/* ---------- layout da página de jogos ---------- */
+.app {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px;
+}
+@media (min-width: 900px) { .app { grid-template-columns: 250px 1fr; } }
+
+.menu { display: none; }
+.menu.aberto { display: block; }
+@media (min-width: 900px) { .menu { display: block; } }
+
+.menu nav { margin-top: 20px; display: flex; flex-direction: column; gap: 4px; }
+.menu .item {
+  color: var(--suave);
+  font-weight: 700;
+  padding: 9px 16px;
+  border-radius: 999px;
+  text-decoration: none;
+}
+.menu .item:hover { color: var(--rosa); }
+.menu .item.ativo { background: linear-gradient(90deg, #7b2ff7, #a855f7); color: #fff; box-shadow: var(--brilho); }
+
+.rotulo { color: var(--suave); font-size: 12px; letter-spacing: 2px; border-top: 1px solid rgba(123,47,247,.4); padding-top: 14px; margin-top: 20px; }
+.categorias-menu { display: flex; flex-direction: column; gap: 2px; }
+.cat { color: var(--texto); font-weight: 700; padding: 5px 16px; text-decoration: none; }
+.cat:hover, .cat.ativo { color: var(--rosa); }
+
+.topo { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.topo-titulo { margin-right: auto; }
+.btn-menu {
+  background: transparent; color: var(--texto); border: 1px solid var(--borda);
+  border-radius: 10px; padding: 8px 12px; cursor: pointer; font-size: 16px;
+}
+@media (min-width: 900px) { .btn-menu { display: none; } }
+.busca .campo { margin: 0; max-width: 230px; }
+
+.perfil-chip {
+  display: flex; align-items: center; gap: 8px;
+  border: 1px solid var(--borda); border-radius: 999px; padding: 4px 14px 4px 4px;
+  color: var(--texto); text-decoration: none; font-weight: 700;
+}
+.perfil-chip img { width: 34px; height: 34px; border-radius: 50%; object-fit: cover; }
+
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0; }
+.chip {
+  border: 1px solid rgba(123,47,247,.5); border-radius: 999px;
+  padding: 6px 16px; color: var(--suave); font-weight: 700; text-decoration: none;
+}
+.chip:hover, .chip.ativo { color: var(--rosa); border-color: var(--rosa); }
+
+.grade-jogos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+@media (min-width: 700px)  { .grade-jogos { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 1000px) { .grade-jogos { grid-template-columns: repeat(4, 1fr); } }
+
+.card-jogo {
+  position: relative;
+  background: var(--card);
+  border: 1px solid rgba(123,47,247,.5);
+  border-radius: var(--raio);
+  padding: 10px;
+}
+.card-jogo:hover { border-color: var(--rosa); }
+.card-jogo h3 { margin: 8px 0 2px; font-size: 15px; }
+.capa { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 10px; display: block; }
+.capa.placeholder { background: radial-gradient(circle at 30% 20%, #7b2ff7, #1a0b2b); }
+.fav {
+  position: absolute; top: 16px; right: 16px;
+  background: rgba(20,9,31,.75); border: 0; cursor: pointer;
+  color: var(--suave); border-radius: 999px; padding: 4px 9px; font-size: 15px;
+}
+.fav.ativo { color: var(--rosa); }
+
+.frame-jogo { width: 100%; aspect-ratio: 16/9; border: 1px solid var(--borda); border-radius: var(--raio); margin-top: 12px; }
+
+/* ---------- ranking / perfil ---------- */
+.filtro-ranking .campo { max-width: 320px; }
+.ranking { list-style: none; padding: 0; margin: 16px 0 0; display: flex; flex-direction: column; gap: 8px; }
+.ranking li {
+  display: flex; align-items: center; gap: 12px;
+  background: var(--card); border: 1px solid rgba(123,47,247,.5);
+  border-radius: var(--raio); padding: 10px 14px;
+}
+.ranking img { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; }
+.ranking .pos { font-family: "Press Start 2P", monospace; font-size: 11px; color: var(--rosa); }
+.ranking .quem { flex: 1; display: flex; flex-direction: column; min-width: 0; }
+.ranking .tempo { font-family: "Press Start 2P", monospace; font-size: 11px; }
+
+.perfil-cabecalho { display: flex; align-items: center; gap: 16px; margin-top: 20px; }
+.perfil-cabecalho img { width: 84px; height: 84px; border-radius: 50%; object-fit: cover; box-shadow: var(--brilho); }
